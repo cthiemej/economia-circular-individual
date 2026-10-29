@@ -1,0 +1,143 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Source Serif 4", Georgia, serif;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-notice: var(--notice);
+  --color-notice-foreground: var(--notice-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.375rem;
+  --background: oklch(0.982 0.004 150);
+  --foreground: oklch(0.24 0.015 170);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.24 0.015 170);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.24 0.015 170);
+  /* Verde bosque #2F5D50 */
+  --primary: oklch(0.43 0.055 170);
+  --primary-foreground: oklch(0.985 0.004 150);
+  --secondary: oklch(0.94 0.012 160);
+  --secondary-foreground: oklch(0.3 0.04 170);
+  --muted: oklch(0.95 0.006 150);
+  --muted-foreground: oklch(0.5 0.015 170);
+  --accent: oklch(0.92 0.025 165);
+  --accent-foreground: oklch(0.3 0.05 170);
+  --destructive: oklch(0.55 0.19 27);
+  --destructive-foreground: oklch(0.985 0 0);
+  --success: oklch(0.5 0.1 155);
+  --notice: oklch(0.95 0.035 90);
+  --notice-foreground: oklch(0.38 0.06 75);
+  --border: oklch(0.89 0.01 160);
+  --input: oklch(0.86 0.012 160);
+  --ring: oklch(0.43 0.055 170);
+  --chart-1: oklch(0.55 0.12 165);
+  --chart-2: oklch(0.65 0.13 230);
+  --chart-3: oklch(0.75 0.14 85);
+  --chart-4: oklch(0.6 0.1 300);
+  --chart-5: oklch(0.55 0.03 60);
+  --result-projection: #8a8a8a;
+  --level-prevention: #1f7a4d;
+  --level-life: #3c9d6b;
+  --level-recycle: #c99a1e;
+  --level-recover: #d4732a;
+  --level-enabler: #5a6b7d;
+  --level-none: #8a8a8a;
+  --sidebar: oklch(0.965 0.008 155);
+  --sidebar-foreground: oklch(0.3 0.02 170);
+  --sidebar-primary: oklch(0.43 0.055 170);
+  --sidebar-primary-foreground: oklch(0.985 0.004 150);
+  --sidebar-accent: oklch(0.92 0.025 165);
+  --sidebar-accent-foreground: oklch(0.3 0.05 170);
+  --sidebar-border: oklch(0.89 0.01 160);
+  --sidebar-ring: oklch(0.43 0.055 170);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+  }
+  h1, h2, h3 {
+    font-family: var(--font-serif);
+    letter-spacing: 0;
+  }
+  table {
+    font-size: 0.875rem;
+  }
+}
+
+@utility code-input {
+  font-family: ui-monospace, "IBM Plex Mono", monospace;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* Calibrated LEVEL_COLORS from simulator-content, exposed as theme roles. */
+.level-color { color: var(--foreground); border-color: var(--level-none); border-left-width: 4px; }
+.level-Rechazar, .level-Repensar, .level-Reducir, .level-Reducir-y-reciclar { border-color: var(--level-prevention); }
+.level-Reusar, .level-Reparar-y-reusar, .level-Reutilizar, .level-Reparar, .level-Restaurar, .level-Remanufacturar { border-color: var(--level-life); }
+.level-Reciclar, .level-Reciclar-alto-grado, .level-Reciclar-aparente { border-color: var(--level-recycle); }
+.level-Recuperar { border-color: var(--level-recover); }
+.level-Habilitador, .level-Cumplimiento, .level-Información, .level-Medición { border-color: var(--level-enabler); }
+main { min-width: 0; }
+.result-chart { overflow: hidden; }
+@media print {
+  @page { size: A4; margin: 14mm; }
+  body { background: var(--card); }
+  header, aside, main > nav, header + div, main > div:first-of-type:not(.game-summary) { display: none !important; }
+  main { padding: 0 !important; width: 100%; }
+  .game-summary { font-size: 10pt; }
+  .game-summary section { margin-top: 16pt; }
+  .game-summary .overflow-x-auto { overflow: visible; }
+  .game-summary table { font-size: 8pt; table-layout: fixed; overflow-wrap: anywhere; }
+  .game-summary th { white-space: normal; }
+  .game-summary td, .game-summary th { padding: 5pt; }
+  .practice-feedback { break-inside: avoid; }
+}
+
+@media (max-width: 767px) { main { overflow-x: hidden; } section { max-width: 100%; overflow-x: auto; } }
+@media print { body { print-color-adjust: exact; -webkit-print-color-adjust: exact; } }
